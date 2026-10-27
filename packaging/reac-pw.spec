@@ -20,17 +20,17 @@ BuildRequires:  pkgconfig(libspa-0.2)
 # with enrolled nodes). Against an older libreac the build dies at the #include; the floor is
 # raised anyway so the refusal arrives at configure time with a sentence somebody can read.
 # >=1.5.1 SINCE 1.0.27: the grant takes a box up to 40 channels wide (a 40 in / 0 out box).
-BuildRequires:  pkgconfig(libreac) >= 1.7.0
-BuildRequires:  pkgconfig(libreac) < 1.9
+BuildRequires:  pkgconfig(libreac) >= 1.9.0
+BuildRequires:  pkgconfig(libreac) < 1.10
 # libreac-transport (2026-09-11-reac-transport-library, 0.5.11): the
 # sockets, SCHED_FIFO pacer, RT threads, VLAN/topology scan, ring and segment lock that used
 # to be built here as src/*.c now come from this package; 0.5.10 and earlier never linked it.
-BuildRequires:  pkgconfig(libreac-transport) >= 1.7.0
-BuildRequires:  pkgconfig(libreac-transport) < 1.9
+BuildRequires:  pkgconfig(libreac-transport) >= 1.9.0
+BuildRequires:  pkgconfig(libreac-transport) < 1.10
 # fake_box, the stagebox emulator the whole-binary tests drive (tools/ci-suite.sh): the first libreac release that
 # ships fake_box (libreac-tests 1.7.3), up to the ceiling the libraries above carry
 BuildRequires:  libreac-tests >= 1.7.3
-BuildRequires:  libreac-tests < 1.9
+BuildRequires:  libreac-tests < 1.10
 # systemd_user_post/_preun/_postun below, and %%{_userunitdir}/%%{_userpresetdir} in
 # %%files -- the RPM now packages its own USER unit (1.0.8, this changelog entry).
 BuildRequires:  systemd-rpm-macros
@@ -41,10 +41,10 @@ Requires:       iproute
 # is all it generates: 0.7.2 carries soname 1 too, satisfies it, and the daemon then dies
 # at exec on an undefined reac_link_* -- the exact 0.6.0 failure the %%description below
 # recounts, one soname later. The version floor has to be written down.
-Requires:       libreac >= 1.7.0
-Requires:       libreac < 1.9
-Requires:       libreac-transport >= 1.7.0
-Requires:       libreac-transport < 1.9
+Requires:       libreac >= 1.9.0
+Requires:       libreac < 1.10
+Requires:       libreac-transport >= 1.9.0
+Requires:       libreac-transport < 1.10
 %{?systemd_requires}
 
 %description
